@@ -1,0 +1,12 @@
+look into unit testing, find which tester is best
+find out how to save the tree without constructing it every time
+create a makefile
+
+n-ary tree
++is able to stop early (more efficient for longer words)
+*worst case O(n*|n|), best case O(|n|) (|n| is the length of the longest word)
+	|n| << n
+
+Hash table
++O(1) finds
+-O(n) space
