@@ -4,7 +4,16 @@
 #include "node.h"
 
 Tree::Tree(){
-	root = new Node();
+	root = new Node(-1);
+	iter = new Node(-1 root);
+}
+void iterReset(){
+	iter = NULL;
+}
+void percolate(){
+	
+}
+void percolateTo(){
 }
 /*
  *@word - string to be added to the tree by its individual characters.
@@ -15,7 +24,9 @@ Tree::Tree(){
 void Tree::addWord(std::string word){
 	Node* nodeIter = root;
 	for(std::string::iterator it = word.begin(); it != word.end(); ++it){
-		nodeIter->addChild(*it, false);
+		if(nodeIter->addChild(*it, false) == -1){
+			std::cout << "invalid character in " << *it << std::endl;
+		}
 		nodeIter = nodeIter->getChild(*it);
 	}
 	nodeIter->addChild('$', true);

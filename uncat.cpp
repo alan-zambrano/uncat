@@ -1,7 +1,5 @@
 #include <iostream>
 #include <fstream>
-#include <istream>
-#include <stdlib.h>
 #include <string>
 #include "tree.h"
 #include "node.h"
@@ -19,8 +17,10 @@ int main(){
 		std::getline(fword, word, '\n');
 		dict.addWord(word);
 	}
+	
+	std::string catted("someare");
 
-	if(dict.isWord("Are")){
-		std::cout << "is in the dictionary" << std::endl;
+	for(std::string::iterator it = catted.begin(); it != catted.end(); ++it){
+		
 	}
 }

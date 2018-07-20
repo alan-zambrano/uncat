@@ -5,13 +5,22 @@
 
 Node::Node(){
 	value = -1;
+	for(int i = 0; i < 28; i++){
+		children[i] = NULL;
+	}
 }
 Node::Node(char val){
 	value = val;
+	for(int i = 0; i < 28; i++){
+		children[i] = NULL;
+	}
 }
 Node::Node(char val, Node* par){
 	value = val;
 	parent = par;
+	for(int i = 0; i < 28; i++){
+		children[i] = NULL;
+	}
 }
 /*
  *@val - character to be stored in the current node's child.
