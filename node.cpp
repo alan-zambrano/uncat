@@ -22,6 +22,7 @@ Node::Node(char val, Node* par){
 		children[i] = NULL;
 	}
 }
+
 /*
  *@val - character to be stored in the current node's child.
  *@isEnd - used to check if '$' is at the end of the word. It is not allowed
@@ -59,8 +60,9 @@ int Node::addChild(char val, bool isEnd){
 	}
 	return 0;
 }
+
 /*
- *@val - character id of the child we're looking for.
+ *@val - character value of the child we're looking for.
  *
  *returns: a pointer to the child whose @value matches @val. NULL if it does
  *not exist.
@@ -74,4 +76,12 @@ Node* Node::getChild(char val){
 		return children[val-65];
 	else if(islower(val))
 		return children[val-97];
+}
+/*
+ *children[27] is specifically reserved for the '$' character and set to NULL
+ *by default. If it exists, then that means the current node is the last letter
+ *of a word that exists in our dictionary.
+ */
+bool Node::isWord(){
+	return children[27];
 }

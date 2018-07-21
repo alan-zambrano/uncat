@@ -8,6 +8,7 @@ class Node{
 		Node(char val, Node* par);
 		int addChild(char val, bool isEnd);
 		Node* getChild(char val);
+		bool isWord();
 
 		char value;
 		Node* parent;
