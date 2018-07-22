@@ -5,28 +5,27 @@
 #include "tree.h"
 #include "node.h"
 
-#define DICTIONARY "wordstest.txt"
+#define DICTIONARY "test.txt"
 
 Tree dict;
 std::string catted;
-std::stack<int> spaces;
 
-int recFindWord(int i){
+int recFindWord(int i, std::string word){
 	Node* iter = dict.root;
 	iter = iter->getChild(catted[i]);
+	bool ret = 0;
 
 	for(; i < catted.length(); ++i, iter = iter->getChild(catted[i])){
 		if(iter == NULL){
 			return 0;
 		}
+		word += iter->value;
 		if(iter->isWord()){
 			if(i == catted.length()-1){
+				std::cout << word << std::endl;
 				return 1;
 			}
-			else if(recFindWord(i+1)){
-				spaces.push(i+1);
-				return 1;
-			}
+			recFindWord(i+1, word + " ");
 		}
 	}
 	return 0;
@@ -43,17 +42,20 @@ int main(){
 		dict.addWord(word);
 	}
 	
-	catted = "thesearethesea";
+	catted = "someare";
 	//TODO: remove whitespace from catted
 
-	recFindWord(0);
-
-	for(int i = 0; i < catted.length(); i++){
-		if(!spaces.empty() && i == spaces.top()){
-			std::cout << " ";
-			spaces.pop();
+	std::cout << recFindWord(0, "") << std::endl;
+	/*
+	while(!spaces.empty()){
+		for(int i = 0; i < catted.length(); i++){
+			if(!spaces.empty() && i == spaces.top()){
+				std::cout << " ";
+				spaces.pop();
+			}
+			std::cout << catted[i];
 		}
-		std::cout << catted[i];
+		std::cout << std::endl;
 	}
-	std::cout << std::endl;
+	*/
 }

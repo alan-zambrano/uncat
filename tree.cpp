@@ -18,6 +18,9 @@ Tree::Tree(){
  */
 int Tree::addWord(std::string word){
 	Node* nodeIter = root;
+	if(word.length() == 0){
+		return 0;
+	}
 	for(int i = 0; i < word.length(); i++){
 		if(!isupper(word[i]) &&
 		!islower(word[i]) &&
