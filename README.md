@@ -26,7 +26,7 @@ value='a'. It's important to mention that nodes are not case sensitive and can
 only be created with value as an alphabetic value, or '$', or '.'. '$' is an
 end-of-word delimiter, and '.' is used for acronym words.
 
-##tree.cpp
+## tree.cpp
 Contains a node object called root for navigation purposes. This class also
 contains member functions to add words to the tree and to check if a given
 string exists in the dictionary.
