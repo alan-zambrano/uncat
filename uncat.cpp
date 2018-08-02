@@ -5,10 +5,17 @@
 #include "tree.h"
 #include "node.h"
 
-#define DICTIONARY "test.txt"
-
 Tree dict;
 std::string catted;
+
+void remws(std::string& word){
+	for(int i = 0; i < word.length(); i++){
+		if(word[i] == ' '){
+			word.erase(i);
+			i--;
+		}
+	}
+}
 
 int recFindWord(int i, std::string word){
 	Node* iter = dict.root;
@@ -34,28 +41,27 @@ int recFindWord(int i, std::string word){
 int main(){
 	std::fstream fword;
 	std::string word;
+	std::string fdict;
 
-	fword.open(DICTIONARY);
+	std::cout << "Dictionary >> ";
+	std::cin >> fdict;
+
+	fword.open(fdict.c_str());
+
+	if(!fword){
+		std::cout << "unable to open file" << std::endl;
+		return 1;
+	}
 
 	while(!fword.eof()){
 		std::getline(fword, word, '\n');
 		dict.addWord(word);
 	}
 	
-	catted = "someare";
-	//TODO: remove whitespace from catted
+	std::cout << "concatenated string >> ";
+	std::cin >> catted;
+	
+	remws(catted);
 
 	std::cout << recFindWord(0, "") << std::endl;
-	/*
-	while(!spaces.empty()){
-		for(int i = 0; i < catted.length(); i++){
-			if(!spaces.empty() && i == spaces.top()){
-				std::cout << " ";
-				spaces.pop();
-			}
-			std::cout << catted[i];
-		}
-		std::cout << std::endl;
-	}
-	*/
 }

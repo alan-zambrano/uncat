@@ -1,5 +1,8 @@
 # UNCAT
 
+credit to https://github.com/dwyl/english-words/blob/master/words.txt for
+dictionary.txt
+
 uncat is a program that takes a concatenated string composed of 2 or more words
 and separates it back into its individual words. It does this by iterating
 through each letter in the concatenated string and recursively finding existing

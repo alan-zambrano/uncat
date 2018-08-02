@@ -59,7 +59,6 @@ TEST(TreeTest, WordSubsets){
 		dict.addWord(word);
 	}
 
-	EXPECT_FALSE(dict.isWord("the"));
 	EXPECT_FALSE(dict.isWord("theses"));
 	EXPECT_FALSE(dict.isWord("ar"));
 	EXPECT_FALSE(dict.isWord("som"));
